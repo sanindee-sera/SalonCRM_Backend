@@ -1,0 +1,67 @@
+/* public/css/custom.css */
+
+.header-nav a {
+    transition: color 0.3s ease;
+}
+
+.header-nav a:hover {
+    color: #ff6347; /* Tomato color on hover */
+}
+
+.hero-section {
+    height: 600px;
+    background-image: url('/images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-section .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.hero-section .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+}
+
+.service-card {
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-section textarea {
+    border: 1px solid #e2e8f0;
+    transition: border-color 0.3s ease;
+}
+
+.feedback-section textarea:focus {
+    border-color: #ff6347; /* Tomato color on focus */
+}
+
+.footer-section {
+    background-color: #000;
+    color: #fff;
+    padding: 2rem 1rem;
+}
+
+.footer-section a {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #ff6347; /* Tomato color on hover */
+}
