@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Appoinments') }}
+            {{ __('Appointments') }}
         </h2>
     </x-slot>
 
@@ -42,7 +42,8 @@
                                         class="inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button
+                                        <button type="submit"
+                                                onclick="return confirm('Are you sure you want to delete this appointment?');"
                                             class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                                     </form>
                                 </td>

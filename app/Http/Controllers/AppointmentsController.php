@@ -23,15 +23,26 @@ class AppointmentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('appointments.create');
     }
 
     /**
      * Store a newly created resource in storage.
+     * @param StoreAppointmentsRequest $request
+     * @param $appointment
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(StoreAppointmentsRequest $request)
+    public function store(StoreAppointmentsRequest $request, $appointment)
     {
-        //
+        $validated = $request->validated();
+
+        //create the slug
+        $validated['slug'] = \Illuminate\Support\Str::slug($validated['name']);
+
+        $appointment->create($validated);
+
+        return redirect()->route('appointments.index')->with('flash.banner', 'Appointment created successfully.');
+
     }
 
     /**
@@ -39,6 +50,7 @@ class AppointmentsController extends Controller
      */
     public function show(Appointments $appointment)
     {
+        //
 
     }
 
@@ -59,9 +71,17 @@ class AppointmentsController extends Controller
      */
     public function update(UpdateAppointmentsRequest $request, Appointments $appointment)
     {
-        $appointment->update($request->validated());
 
-        return redirect()->route('appointments.index')->with('success', 'Appointment updated successfully.');
+
+        $validated = $request->validated();
+
+        //create the slug
+        $validated['slug'] = \Illuminate\Support\Str::slug($validated['name']);
+
+        $appointment->update($validated);
+
+
+        return redirect()->route('appointments.index')->with('flash.banner', 'Appointment updated successfully.');
     }
 
     /**
@@ -69,6 +89,14 @@ class AppointmentsController extends Controller
      */
     public function destroy(Appointments $appointment)
     {
-        //
+        $model = $appointment;
+
+        $appointment->delete();
+
+        //set the banner status to danger
+        session()->flash('flash.bannerStyle', 'danger');
+
+        return redirect()->route('appointments.index')
+            ->with('flash.banner', 'Appointment ' . $model->name . 'deleted successfully.');
     }
 }
