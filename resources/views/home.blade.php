@@ -35,7 +35,7 @@
                 </header>
 
                 <main>
-                    <div class="relative bg-cover bg-center" style="background-image: url('/images/bg.jpg'); height: 600px;">
+                    <div class="relative bg-cover bg-center" style="background-image: url('/public/images/bg.jpg'); height: 600px;">
                         <div class="absolute inset-0 bg-black opacity-50"></div>
                         <div class="relative flex flex-col items-center justify-center text-center text-white h-full">
                             <h2 class="text-5xl font-bold mb-4">Life isn’t perfect but your</h2>
@@ -53,23 +53,23 @@
                             <h2 class="text-center text-4xl font-bold mb-8">Service Menu</h2>
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                                    <img src="path-to-your-hair-icon.png" alt="Hair" class="mx-auto mb-4" />
+                                    <img src="/public/images/hair-icon.png" alt="Hair" class="mx-auto mb-4" />
                                     <h3 class="text-xl font-bold">Hair</h3>
                                 </div>
                                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                                    <img src="path-to-your-makeup-icon.png" alt="Makeup" class="mx-auto mb-4" />
+                                    <img src="/public/images/makeup-icon.png" alt="Makeup" class="mx-auto mb-4" />
                                     <h3 class="text-xl font-bold">Makeup</h3>
                                 </div>
                                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                                    <img src="path-to-your-nails-icon.png" alt="Manicure Pedicure" class="mx-auto mb-4" />
+                                    <img src="/public/images/manicure-icon.png" alt="Manicure Pedicure" class="mx-auto mb-4" />
                                     <h3 class="text-xl font-bold">Manicure Pedicure</h3>
                                 </div>
                                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                                    <img src="path-to-your-skincare-icon.png" alt="Skincare" class="mx-auto mb-4" />
+                                    <img src="/public/images/skincare-icon.png" alt="Skincare" class="mx-auto mb-4" />
                                     <h3 class="text-xl font-bold">Skincare</h3>
                                 </div>
                                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                                    <img src="path-to-your-facial-icon.png" alt="Facial" class="mx-auto mb-4" />
+                                    <img src="/public/images/facial-icon.png" alt="Facial" class="mx-auto mb-4" />
                                     <h3 class="text-xl font-bold">Facial</h3>
                                 </div>
                             </div>
