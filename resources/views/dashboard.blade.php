@@ -1,4 +1,18 @@
 <x-app-layout>
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div>
+                <a href="{{ route('dashboard') }}" class="text-white text-xl font-bold">Dashboard</a>
+            </div>
+            <div class="flex space-x-6">
+                <a href="{{ route('categories.index') }}" class="text-gray-300 hover:text-white font-medium">Categories</a>
+                <a href="{{ route('appointments.index') }}" class="text-gray-300 hover:text-white font-medium">Appointments</a>
+                <!-- Add more links here if needed -->
+            </div>
+        </div>
+    </nav>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -26,22 +40,7 @@
                     <p class="mt-2 text-2xl">20%</p>
                 </div>
             </div>
-            <!-- Bar Chart -->
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 mb-6">
-                <canvas id="barChart" width="400" height="200"></canvas>
-            </div>
-            <!-- Line Chart -->
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 mb-6">
-                <canvas id="lineChart" width="400" height="200"></canvas>
-            </div>
-            <!-- Pie Chart -->
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 mb-6">
-                <canvas id="pieChart" width="200" height="200"></canvas>
-            </div>
-            <!-- Doughnut Chart -->
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 mb-6">
-                <canvas id="doughnutChart" width="400" height="200"></canvas>
-            </div>
+
             <!-- Simple Table -->
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 mb-6">
                 <h3 class="text-lg font-medium mb-4">Recent Transactions</h3>
@@ -72,6 +71,7 @@
                     </tbody>
                 </table>
             </div>
+
             <!-- Detailed Analytics Table -->
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 mb-6">
                 <h3 class="text-lg font-medium mb-4">User Engagement</h3>
@@ -108,126 +108,4 @@
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        // Bar Chart
-        var barCtx = document.getElementById('barChart').getContext('2d');
-        var barChart = new Chart(barCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        // Line Chart
-        var lineCtx = document.getElementById('lineChart').getContext('2d');
-        var lineChart = new Chart(lineCtx, {
-            type: 'line',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                datasets: [{
-                    label: 'Sales',
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        // Pie Chart
-        var pieCtx = document.getElementById('pieChart').getContext('2d');
-        var pieChart = new Chart(pieCtx, {
-            type: 'pie',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            }
-        });
-
-        // Doughnut Chart
-        var doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
-        var doughnutChart = new Chart(doughnutCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Chrome', 'Safari', 'Firefox', 'Edge', 'Others'],
-                datasets: [{
-                    label: 'Browser Usage',
-                    data: [55, 25, 10, 5, 5],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            }
-        });
-    </script>
 </x-app-layout>
-

@@ -19,34 +19,73 @@
                     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
                 </head>
                 <body>
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        <div class="flex justify-between items-center">
-                            <h1 class="text-3xl font-bold text-gray-900">STYLE-SYNC</h1>
-                            <nav class="space-x-4">
-                                <a href="#" class="text-gray-500 hover:text-gray-900">Home</a>
-                                <a href="#" class="text-gray-500 hover:text-gray-900">About Us</a>
-                                <a href="#" class="text-gray-500 hover:text-gray-900">Service Menu</a>
-                                <a href="#" class="text-gray-500 hover:text-gray-900">Our Story</a>
-                                <a href="#" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700">Contact Us</a>
-                            </nav>
-                        </div>
-                    </div>
-                </header>
-
-                <main>
-                    <div class="relative bg-cover bg-center" style="background-image: url('images/bg.jpg'); height: 600px;">
-                        <div class="absolute inset-0 bg-black opacity-50"></div>
-                        <div class="relative flex flex-col items-center justify-center text-center text-white h-full">
-                            <h2 class="text-5xl font-bold mb-4">Life isn’t perfect but your</h2>
-                            <h2 class="text-5xl font-bold mb-4 text-pink-500">HAIR</h2>
-                            <h2 class="text-5xl font-bold mb-4">can be.</h2>
-                            <div class="space-x-4">
-                                <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Book Appointment</a>
-                                <a href="/login" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700">Login or Sign up</a>
+                <!-- Navigation Bar -->
+                <nav class="bg-gray-900 shadow-lg">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="flex justify-between items-center py-4">
+                            <!-- Logo -->
+                            <div class="flex-shrink-0">
+                                <a href="{{ route('dashboard') }}" class="text-white text-3xl font-extrabold">STYLE-SYNC</a>
+                            </div>
+                            <!-- Links -->
+                            <div class="hidden md:flex space-x-8">
+                                <a href="#" class="text-gray-300 hover:text-white transition duration-300">Home</a>
+                                <a href="#" class="text-gray-300 hover:text-white transition duration-300">About Us</a>
+                                <a href="#" class="text-gray-300 hover:text-white transition duration-300">Service Menu</a>
+                                <a href="#" class="text-gray-300 hover:text-white transition duration-300">Our Story</a>
+                                <a href="#" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition duration-300">Contact Us</a>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="md:hidden">
+                                <button id="mobile-menu-button" class="text-gray-300 hover:text-white">
+                                    <!-- Mobile Menu Icon -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
                     </div>
+                    <!-- Mobile Menu -->
+                    <div id="mobile-menu" class="hidden md:hidden bg-gray-800 text-gray-300">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-700">Home</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-700">About Us</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-700">Service Menu</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-700">Our Story</a>
+                        <a href="#" class="block px-4 py-2 bg-red-500 text-white hover:bg-red-700">Contact Us</a>
+                    </div>
+                </nav>
+
+                <!-- Page Header -->
+                <x-slot name="header">
+                    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                        {{ __('Home') }}
+                    </h2>
+                </x-slot>
+
+                <!-- Main Content -->
+                <div class="py-12">
+                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                            <!-- Welcome Section -->
+                            <h1 class="text-center text-3xl font-bold mt-5">Welcome to the Home Page</h1>
+
+                            <!-- Hero Section -->
+                            <div class="relative bg-cover bg-center" style="background-image: url('images/bg.jpg'); height: 600px;">
+                                <div class="absolute inset-0 bg-black opacity-50"></div>
+                                <div class="relative flex flex-col items-center justify-center text-center text-white h-full">
+                                    <h2 class="text-5xl font-bold mb-4">Life isn’t perfect but your</h2>
+                                    <h2 class="text-5xl font-bold mb-4 text-pink-500">HAIR</h2>
+                                    <h2 class="text-5xl font-bold mb-4">can be.</h2>
+                                    <div class="space-x-4">
+                                        <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition duration-300">Book Appointment</a>
+                                        <a href="/login" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700 transition duration-300">Login or Sign up</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                <main>
+
 
                     <section class="bg-gray-100 py-12">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

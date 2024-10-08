@@ -34,3 +34,8 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+// routes/web.php
+
+Route::resource('categories', CategoryController::class);
+Route::resource('appointments', AppointmentsController::class);
