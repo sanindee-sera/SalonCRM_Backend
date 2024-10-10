@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <h1 class="text-center text-3xl font-bold mt-5">Welcome to the Home Page</h1>
+                <!--<h1 class="text-center text-3xl font-bold mt-5">Welcome to the Home Page</h1>-->
 
                 <!DOCTYPE html>
                 <html lang="en">

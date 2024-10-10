@@ -44,7 +44,7 @@ Route::get('/admin/appointments', function () {
     return view('layouts.admin');  // Pointing to 'resources/views/layouts/admin.blade.php'
 })->name('admin.appointments');
 
-// routes/web.php
+
 Route::get('/appointments/events', [App\Http\Controllers\AppointmentsController::class, 'getAppointments'])->name('appointments.events');
 
 

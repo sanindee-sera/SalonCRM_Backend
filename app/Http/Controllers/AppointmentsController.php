@@ -40,7 +40,7 @@ class AppointmentsController extends Controller
         $validated['slug'] = Str::slug($validated['name']);
 
         // Store the 'time' field
-        $validated['time'] = $request->input('time');
+        $validated['time'] = $request->input('time');  // Ensure this is in 'datetime' format (e.g., 2024-10-10 10:00:00)
 
         // Create the appointment
         Appointments::create($validated);
@@ -80,7 +80,7 @@ class AppointmentsController extends Controller
         $validated['slug'] = Str::slug($validated['name']);
 
         // Handle the time field (no need for start_time or end_time)
-        $validated['time'] = $request->input('time'); // Assuming time is submitted from the form
+        $validated['time'] = $request->input('time'); // Ensure this is in 'datetime' format
 
         // Update the appointment
         $appointment->update($validated);
@@ -111,19 +111,24 @@ class AppointmentsController extends Controller
      */
     public function getEvents()
     {
+        // Fetch all appointments from the database
         $appointments = Appointments::all();
         $events = [];
 
         foreach ($appointments as $appointment) {
+            // Structure each appointment as a FullCalendar event
             $events[] = [
-                'title' => $appointment->name,
-                'start' => $appointment->timeformat('Y-m-d\TH:i:s'),
-                'description' => $appointment->description,
-                'status' => $appointment->status,
-                'email' => $appointment->email,
+                'title' => $appointment->name,  // Assuming 'name' is the appointment title
+                'start' => $appointment->time->format('Y-m-d\TH:i:s'),  // Format 'time' field as ISO 8601 (Y-m-d\TH:i:s)
+                'description' => $appointment->description,  // Optional: more details about the appointment
+                'extendedProps' => [  // Additional properties like status, email, etc.
+                    'status' => $appointment->status,
+                    'email' => $appointment->email,
+                ]
             ];
         }
 
+        // Return the events as a JSON response
         return response()->json($events);
     }
 }
