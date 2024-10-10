@@ -71,9 +71,32 @@
                             </tbody>
                         </table>
 
+                        <!-- FullCalendar -->
+                        <div id="calendar" class="mt-8"></div> <!-- Calendar will appear here -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- FullCalendar CSS and JS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.9.0/main.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.9.0/main.min.js"></script>
+
+    <!-- FullCalendar Initialization Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',  // You can change this to 'timeGridWeek' for week view
+                events: '/appointments/events', // Route to fetch the appointments from the backend
+                eventClick: function (info) {
+                    alert('Appointment: ' + info.event.title + '\nDescription: ' + info.event.extendedProps.description);
+                }
+            });
+
+            calendar.render();
+        });
+    </script>
 </x-app-layout>

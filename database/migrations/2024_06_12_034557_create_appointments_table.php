@@ -17,12 +17,11 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('description');
             $table->string('email');
-            $table->string('date');
-            $table->string('time');
+
+            // Add 'time' column (since we're dropping start_time and end_time)
+            $table->time('time'); // Store only the time part
+
             $table->string('status')->default('pending');
-
-
-
             $table->timestamps();
         });
     }

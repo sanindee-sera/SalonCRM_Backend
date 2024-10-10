@@ -3,47 +3,49 @@
     <nav class="bg-gray-800 p-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div>
-                <a href="{{ route('dashboard') }}" class="text-white text-xl font-bold">Dashboard</a>
+                <a href="{{ route('dashboard') }}" class="text-white text-xl font-bold">Admin Dashboard</a>
             </div>
             <div class="flex space-x-6">
                 <a href="{{ route('categories.index') }}" class="text-gray-300 hover:text-white font-medium">Categories</a>
                 <a href="{{ route('appointments.index') }}" class="text-gray-300 hover:text-white font-medium">Appointments</a>
-                <!-- Add more links here if needed -->
+                <!-- Add more links as needed -->
             </div>
         </div>
     </nav>
 
+    <!-- Page Header -->
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+        <h2 class="font-semibold text-2xl text-gray-800 leading-tight">
+            {{ __('Admin Dashboard') }}
         </h2>
     </x-slot>
 
+    <!-- Content Section -->
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <!-- Statistics Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-6">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-                    <h3 class="text-lg font-medium">Total Sales</h3>
-                    <p class="mt-2 text-2xl">$12,000</p>
+                    <h3 class="text-lg font-medium text-gray-700">Total Sales</h3>
+                    <p class="mt-2 text-2xl text-gray-800">$12,000</p>
                 </div>
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-                    <h3 class="text-lg font-medium">New Users</h3>
-                    <p class="mt-2 text-2xl">150</p>
+                    <h3 class="text-lg font-medium text-gray-700">New Users</h3>
+                    <p class="mt-2 text-2xl text-gray-800">150</p>
                 </div>
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-                    <h3 class="text-lg font-medium">Active Sessions</h3>
-                    <p class="mt-2 text-2xl">75</p>
+                    <h3 class="text-lg font-medium text-gray-700">Active Sessions</h3>
+                    <p class="mt-2 text-2xl text-gray-800">75</p>
                 </div>
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
-                    <h3 class="text-lg font-medium">Bounce Rate</h3>
-                    <p class="mt-2 text-2xl">20%</p>
+                    <h3 class="text-lg font-medium text-gray-700">Bounce Rate</h3>
+                    <p class="mt-2 text-2xl text-gray-800">20%</p>
                 </div>
             </div>
 
-            <!-- Simple Table -->
+            <!-- Recent Transactions Table -->
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 mb-6">
-                <h3 class="text-lg font-medium mb-4">Recent Transactions</h3>
+                <h3 class="text-lg font-medium text-gray-700 mb-4">Recent Transactions</h3>
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead>
                     <tr>
@@ -52,7 +54,7 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-white divide-y divide-gray-200">
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap">2024-06-12</td>
                         <td class="px-6 py-4 whitespace-nowrap">John Doe</td>
@@ -72,9 +74,9 @@
                 </table>
             </div>
 
-            <!-- Detailed Analytics Table -->
+            <!-- User Engagement Analytics Table -->
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 mb-6">
-                <h3 class="text-lg font-medium mb-4">User Engagement</h3>
+                <h3 class="text-lg font-medium text-gray-700 mb-4">User Engagement</h3>
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead>
                     <tr>
@@ -84,7 +86,7 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Conversions</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-white divide-y divide-gray-200">
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap">John Doe</td>
                         <td class="px-6 py-4 whitespace-nowrap">120</td>
